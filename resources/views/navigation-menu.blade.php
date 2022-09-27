@@ -5,11 +5,19 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <label for="my-drawer-2" class="cursor-pointer hover:bg-gray-50 rounded-lg p-2 mx-2  active:bg-blue-100 lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </label>
+{{--                    <label for="my-drawer-2" class="cursor-pointer hover:bg-gray-50 rounded-lg p-2 mx-2  active:bg-blue-100 lg:hidden">--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">--}}
+{{--                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />--}}
+{{--                        </svg>--}}
+{{--                    </label>--}}
+
+                    <a id="btn-collapse" href="#" class="cursor-pointer flex hover:bg-gray-50 rounded-lg p-2 mx-2  active:bg-blue-100">
+                        <i class="ri-menu-line ri-xl"></i>
+                    </a>
+                    <a id="btn-toggle" href="#" class="sidebar-toggler flex break-point-lg cursor-pointer hover:bg-gray-50 rounded-lg p-2 mx-2  active:bg-blue-100">
+                        <i class="ri-menu-line ri-xl"></i>
+                    </a>
+
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
