@@ -17,13 +17,10 @@
             <div class="sidebar-content">
                 <nav class="menu open-current-submenu">
                     <ul>
-                        <x-side-nav-item :route="route('dashboard')" :icon="'ri-vip-diamond-fill'" :title="'Home'"></x-side-nav-item>
+                        <x-side-nav-item :route="route('dashboard')" :icon="'ri-vip-diamond-fill'" title="Home"></x-side-nav-item>
                         <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Users'">
                             <x-side-nav-item  :route="route('users')" :icon="'ri-list-ordered'" :title="'All Users'"></x-side-nav-item>
                         </x-side-nav-sub-item>
-
-
-
                     </ul>
                 </nav>
             </div>
