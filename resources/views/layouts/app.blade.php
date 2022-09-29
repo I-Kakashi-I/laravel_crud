@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,13 +62,13 @@
 
 
         <x-side-nav>
-            <div class="min-h-screen w-full bg-gray-50">
+            <div class="min-h-screen w-full bg-gray-50 dark:bg-gray-800 ">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
                 @if (isset($header))
                     <header class="bg-white shadow">
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-8xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
                     </header>
@@ -82,6 +82,7 @@
         </x-side-nav>
 
 
+        @stack('js')
         @stack('modals')
 
         @livewireScripts
@@ -89,5 +90,7 @@
 
         <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/popper.js')}}"></script>
+
+
     </body>
 </html>

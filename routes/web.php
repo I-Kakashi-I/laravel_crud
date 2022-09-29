@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BranchesController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EmployeesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +29,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('users',\App\Http\Livewire\User::class)->name('users');
+    Route::resource('department', DepartmentController::class);
+    Route::resource('branches', BranchesController::class);
+    Route::resource('employee', EmployeesController::class);
 });

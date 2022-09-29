@@ -12,15 +12,31 @@
                 font-size: 15px;
                 letter-spacing: 3px;
                 font-weight: bold;
-              ">Base Dashboard</span>
+              ">CRUD</span>
             </div>
             <div class="sidebar-content">
                 <nav class="menu open-current-submenu">
                     <ul>
-                        <x-side-nav-item :route="route('dashboard')" :icon="'ri-vip-diamond-fill'" title="Home"></x-side-nav-item>
+                        <x-side-nav-item :route="route('dashboard')" :icon="'ri-home-5-line'" title="Home"></x-side-nav-item>
                         <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Users'">
                             <x-side-nav-item  :route="route('users')" :icon="'ri-list-ordered'" :title="'All Users'"></x-side-nav-item>
                         </x-side-nav-sub-item>
+                        <x-side-nav-sub-item  :icon="'ri-building-2-line'" :title="'Departments'">
+                            <x-side-nav-item  :route="route('department.index')" :icon="'ri-list-ordered'" :title="'All Departments'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('department.create')" :icon="'ri-file-add-line'" :title="'Create Department'"></x-side-nav-item>
+                        </x-side-nav-sub-item>
+
+                        <x-side-nav-sub-item  :icon="'ri-git-branch-line'" :title="'Branches'">
+                            <x-side-nav-item  :route="route('branches.index')" :icon="'ri-list-ordered'" :title="'All Branches'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('branches.create')" :icon="'ri-add-box-line'" :title="'Create Branch'"></x-side-nav-item>
+                        </x-side-nav-sub-item>
+
+
+                        <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Employee'">
+                            <x-side-nav-item  :route="route('employee.index')" :icon="'ri-list-ordered'" :title="'All Employees'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('employee.create')" :icon="'ri-user-add-line    '" :title="'Create Employee'"></x-side-nav-item>
+                        </x-side-nav-sub-item>
+
                     </ul>
                 </nav>
             </div>
