@@ -3,6 +3,9 @@
 use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Employee;
+use App\Http\Livewire\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +31,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('users',\App\Http\Livewire\User::class)->name('users');
+    Route::get('users', User::class)->name('users.index');
+    Route::resource('users', UserController::class)->except('index');
     Route::resource('department', DepartmentController::class);
     Route::resource('branches', BranchesController::class);
-    Route::resource('employee', EmployeesController::class);
+    Route::get('employee', Employee::class)->name('employee.index');
+    Route::resource('employee', EmployeesController::class)->except('index');
+
 });

@@ -43,7 +43,7 @@ class DepartmentController extends Controller
 
         $department = new Department;
         $department->name = $request->name;
-        $department->dic = $request->dic;
+        $department->address = $request->address;
         $department->save();
 
 //        session()->flash('success','300');
@@ -89,7 +89,7 @@ class DepartmentController extends Controller
 
         $department = Department::find($id);
         $department->name = $request->name;
-        $department->dic = $request->dic;
+        $department->address = $request->address;
 
         $department->update();
         $department->save();

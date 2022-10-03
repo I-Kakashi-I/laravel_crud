@@ -42,7 +42,7 @@ class BranchesController extends Controller
 
         $branch = new Branch;
         $branch->name = $request->name;
-        $branch->address = $request->addr;
+        $branch->address = $request->address;
         $branch->save();
 
         session()->flash('success', '300');
@@ -88,7 +88,7 @@ class BranchesController extends Controller
 
         $branch = Branch::find($id);
         $branch->name = $request->name;
-        $branch->address = $request->addr;
+        $branch->address = $request->address;
 
         $branch->update();
         $branch->save();

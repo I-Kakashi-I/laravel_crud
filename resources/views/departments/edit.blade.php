@@ -1,40 +1,20 @@
-@extends('layouts.app')
-
-@push('css')
-    <link rel="stylesheet" href="{{asset('/css/formStyle.css')}}">
-@endpush
-
-@section('content')
-
-    <form action="{{route('department.update',$department->id)}}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="container mt-5 mb-5 d-flex justify-content-center">
-            <div class="card px-1 py-4">
-                <div class="card-body">
-                    <h6 class="card-title mb-3">Update Department</h6>
-
-                    <h6 class="information mt-4">Edit Data</h6>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="name" placeholder="Name" value="{{$department->name}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input class="form-control" type="text" name="dic" placeholder="" value="{{$department->dic}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block confirm-button">Update</button>
-                </div>
-            </div>
+<x-app-layout>
+    <div class="max-w-4xl mx-auto  min-h-screen flex items-center justify-center">
+        <div class="dark:bg-gray-800 p-5 rounded-xl bg-white w-full py-12" style="margin-top: -100px">
+            <h6 class="block mb-8 text-lg font-medium text-gray-900 dark:text-gray-300 text-center">Edit
+                Department </h6>
+            <form class="w-full" action="{{route('department.update',$department->id)}}" method="POST">
+                @csrf
+                @method('PUT')
+                <x-input_fild id="name" label="Name" placeholder="Name" value="{{$department->name}}" type="text" name="name" required/>
+                <x-input_fild id="address" label="Address" placeholder="Street1, Street2" value="{{$department->address}}" type="text" name="address"  required/>
+                <button type="submit"
+                        class="text-white bg-blue-700 dark:bg-white dark:focus:ring-grey-200 dark:hover:bg-gray-100 dark:text-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 ">
+                    Submit
+                </button>
+            </form>
         </div>
-    </form>
+    </div>
+</x-app-layout>
 
-@endsection
+

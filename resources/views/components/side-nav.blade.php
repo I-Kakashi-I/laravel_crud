@@ -19,7 +19,8 @@
                     <ul>
                         <x-side-nav-item :route="route('dashboard')" :icon="'ri-home-5-line'" title="Home"></x-side-nav-item>
                         <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Users'">
-                            <x-side-nav-item  :route="route('users')" :icon="'ri-list-ordered'" :title="'All Users'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('users.index')" :icon="'ri-list-ordered'" :title="'All Users'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('users.create')" :icon="'ri-user-add-line    '" :title="'Add User'"></x-side-nav-item>
                         </x-side-nav-sub-item>
                         <x-side-nav-sub-item  :icon="'ri-building-2-line'" :title="'Departments'">
                             <x-side-nav-item  :route="route('department.index')" :icon="'ri-list-ordered'" :title="'All Departments'"></x-side-nav-item>
@@ -32,9 +33,9 @@
                         </x-side-nav-sub-item>
 
 
-                        <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Employee'">
+                        <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Employees'">
                             <x-side-nav-item  :route="route('employee.index')" :icon="'ri-list-ordered'" :title="'All Employees'"></x-side-nav-item>
-                            <x-side-nav-item  :route="route('employee.create')" :icon="'ri-user-add-line    '" :title="'Create Employee'"></x-side-nav-item>
+                            <x-side-nav-item  :route="route('employee.create')" :icon="'ri-user-add-line    '" :title="'Add Employee'"></x-side-nav-item>
                         </x-side-nav-sub-item>
 
                     </ul>

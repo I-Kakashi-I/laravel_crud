@@ -11,6 +11,6 @@ class User extends Component
     public function render()
     {
 
-        return view('livewire.user',['users'=> \App\Models\User::query()->where('name', 'like', "%" . $this->search . "%")->get()]);
+        return view('users.index',['users'=> \App\Models\User::query()->where('name', 'like', "%" . $this->search . "%")->paginate(15)]);
     }
 }

@@ -47,7 +47,7 @@ class EmployeesController extends Controller
             'number' => 'required|numeric|digits_between:10,11'
         ]);
 //        'number' => ['required',new PhoneNumber ,'digits_between:10,20']
-//        Employee::query()->create($request->only('name','email','birthday','number','position','address','gender','branch_id'));
+//        Employee.php::query()->create($request->only('name','email','birthday','number','position','address','gender','branch_id'));
         $employee = new Employee;
         $employee->name = $request->name;
         $employee->email = $request->email;

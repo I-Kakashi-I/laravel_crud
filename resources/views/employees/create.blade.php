@@ -5,44 +5,20 @@
                 Employee </h6>
             <form class="w-full" action="{{route('employee.store')}}" method="POST">
                 @csrf
-                <div class="relative z-0 mb-6 w-full group">
-                    <label for="name"
-                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                    <input type="text" id="name" name="name" value="{{old('name')}}"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="First Name - Second Name" required>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                    <label for="email"
-                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">E-mail</label>
-                    <input type="email" id="email" name="email" value="{{old('email')}}"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="name@example.com" required>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                    <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Phone Number</label>
-                    <input type="tel" id="number" name="number" value="{{old('number')}}"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="+1234567890" required>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Address</label>
-                    <input type="text" id="address" name="address" value="{{old('address')}}"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="Street 1 Street 2" required>
-                    <div class="relative z-0 mb-6 w-full group">
-                        <label for="position" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Position</label>
-                        <input type="text" id="position" name="position" value="{{old('position')}}"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                               placeholder="Your Position" required>
-                    </div>
-                </div>
+                <x-input_fild id="name" type="text" name="name" value="{{old('name')}}"
+                              placeholder="First Name - Second Name" label="Name" required/>
+                <x-input_fild id="email" type="email" name="email" value="{{old('email')}}"
+                              placeholder="name@example.com" label="E-mail" required/>
+                <x-input_fild id="number" type="tel" name="number" value="{{old('number')}}"
+                              placeholder="+1234567890" label="Phone Number" required/>
+                <x-input_fild id="address" type="text" name="address" value="{{old('address')}}"
+                              placeholder="Street 1 Street 2" label="Address" required/>
+                <x-input_fild id="position" type="text" name="position" value="{{old('position')}}"
+                              placeholder="Position" label="Position" required/>
                 <div class="grid md:grid-cols-2 md:gap-6">
-
                     <div class="relative">
-                        <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date Of Birth</label>
+                        <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date
+                            Of Birth</label>
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
                                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -61,14 +37,11 @@
                         <select id="gender" name="gender"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option disabled selected>Gender</option>
-                                <option value="male" {{old('gender')=='male'?'selected':''}}>Male</option>
-                                <option value="female" {{old('gender')=='female'?'selected':''}} >Female</option>
+                            <option value="male" {{old('gender')=='male'?'selected':''}}>Male</option>
+                            <option value="female" {{old('gender')=='female'?'selected':''}} >Female</option>
                         </select>
                     </div>
-
-
                 </div>
-
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 mb-6 w-full group">
                         <label for="branch_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select
@@ -77,27 +50,30 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option disabled selected>Branches</option>
                             @foreach($branches as $branch)
-                                <option value="{{$branch->id}}" {{old('branch_id')==$branch->id?'selected':''}}>{{$branch->name}}</option>
+                                <option
+                                    value="{{$branch->id}}" {{old('branch_id')==$branch->id?'selected':''}}>{{$branch->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="relative z-0 mb-6 w-full group">
-                        <label for="department_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select
+                        <label for="department_id"
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select
                             Department</label>
                         <select id="department_id" name="department_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option disabled selected>Departments</option>
                             @foreach($departments as $department)
-                                <option value="{{$department->id}}" {{old('department_id')==$department->id?'selected':''}}>{{$department->name}}</option>
+                                <option
+                                    value="{{$department->id}}" {{old('department_id')==$department->id?'selected':''}}>{{$department->name}}</option>
                             @endforeach
 
                         </select>
                     </div>
                 </div>
-
                 <div class="flex relative z-0 mb-6 w-full group">
                     <div class="flex items-center h-5">
-                        <input id="has_license" aria-describedby="helper-checkbox-text" type="checkbox" value="{{old('has_license')?old('has_license')[0]:true}}"
+                        <input id="has_license" aria-describedby="helper-checkbox-text" type="checkbox"
+                               value="{{old('has_license')?old('has_license')[0]:true}}"
                                name="has_license[]"
                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     </div>
@@ -107,7 +83,6 @@
 
                     </div>
                 </div>
-
                 <button type="submit"
                         class="text-white bg-blue-700 dark:bg-white dark:focus:ring-grey-200 dark:hover:bg-gray-100 dark:text-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 ">
                     Submit
@@ -116,19 +91,8 @@
         </div>
     </div>
 
-
     @push('js')
         <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
     @endpush
 
 </x-app-layout>
-
-
-{{--                        <h6 class="information ">Add Data</h6>--}}
-{{--                        <div class="form-check">--}}
-{{--                            <input class="form-check-input" type="checkbox" value="{{0|1}}" name="has_license">--}}
-{{--                            <label class="form-check-label" for="defaultCheck1">--}}
-{{--                                Has License--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
