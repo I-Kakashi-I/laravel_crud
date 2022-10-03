@@ -77,7 +77,8 @@
             </tbody>
         </table>
     </div>
-    {{$users->links() }}
+
+    {{ $users->links() }}
 </div>
 @push('js')
     <script>

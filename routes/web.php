@@ -31,7 +31,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('users', User::class)->name('users.index');
+    Route::match(['get','post'],'users', User::class)->name('users.index');
     Route::resource('users', UserController::class)->except('index');
     Route::resource('department', DepartmentController::class);
     Route::resource('branches', BranchesController::class);
