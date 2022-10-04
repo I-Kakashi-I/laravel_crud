@@ -2,12 +2,14 @@
     <div class="max-w-4xl mx-auto  min-h-screen flex items-center justify-center">
         <div class="dark:bg-gray-800 p-5 rounded-xl bg-white w-full py-12" style="margin-top: -100px">
             <h6 class="block mb-8 text-lg font-medium text-gray-900 dark:text-gray-300 text-center">Edit
-                User </h6>
+                {{$user->is_admin==1?'Admin':'User'}} Data </h6>
             <form class="w-full" action="{{route('users.update',$user->id)}}" method="POST">
                 @csrf
                 @method('PUT')
-                <x-input_fild :value="$user->name" id="name" type="text" name="name" label="Name" placeholder="User name" required/>
-                <x-input_fild :value="$user->email" id="email" type="email" name="email" label="E-mail" placeholder="user@example.com"/>
+                <x-input_fild :value="$user->name" id="name" type="text" name="name" label="Name"
+                              placeholder="User name" required/>
+                <x-input_fild :value="$user->email" id="email" type="email" name="email" label="E-mail"
+                              placeholder="user@example.com"/>
                 <div class="relative z-0 mb-6 w-full group">
                     <label for="password"
                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
@@ -49,6 +51,17 @@
                     @enderror
                 </div>
 
+                <div class="flex relative z-0 mb-6 w-full group">
+                    <div class="flex items-center h-5">
+                        <input id="is_admin" aria-describedby="helper-checkbox-text" type="checkbox" value="{{0|1}}"
+                               name="is_admin"
+                               class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{$user->is_admin==1?'checked':''}}>
+                    </div>
+                    <div class="ml-2 text-sm ">
+                        <label for="is_admin" class="font-medium text-gray-900 dark:text-gray-300">
+                            Admin</label>
+                    </div>
+                </div>
 
                 <button type="submit"
                         class="text-white bg-blue-700 dark:bg-white dark:focus:ring-grey-200 dark:hover:bg-gray-100 dark:text-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 ">

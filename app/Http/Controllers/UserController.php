@@ -34,9 +34,11 @@ class UserController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
@@ -47,6 +49,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->profile_photo_path = $request->profile_photo_path;
+        $user->is_admin = $request->has('is_admin');;
         $user->save();
 
         session()->flash('success', '300');
@@ -96,6 +99,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->is_admin = $request->is_admin;
         if ($request->password)
             $user->password = bcrypt($request->password);
         $user->profile_photo_path = $request->profile_photo_path;

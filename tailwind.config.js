@@ -8,7 +8,9 @@ module.exports = {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
+        './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
+
 
     ],
 

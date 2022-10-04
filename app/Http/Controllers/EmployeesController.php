@@ -113,7 +113,7 @@ class EmployeesController extends Controller
         $employee->birthday = $request->birthday;
         $employee->number = $request->number;
         $employee->position = $request->position;
-        $employee->address = $request->addr;
+        $employee->address = $request->address;
         $employee->gender = $request->gender;
         $employee->branch_id = $request->branch_id;
         $employee->department_id = $request->department_id;

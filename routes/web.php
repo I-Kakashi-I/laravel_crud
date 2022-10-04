@@ -31,11 +31,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::match(['get','post'],'users', User::class)->name('users.index');
-    Route::resource('users', UserController::class)->except('index');
+    Route::middleware(['admin'])->group(function (){
+        Route::match(['get','post'],'users', User::class)->name('users.index');
+        Route::resource('users', UserController::class)->except('index');
+    });
     Route::resource('department', DepartmentController::class);
     Route::resource('branches', BranchesController::class);
     Route::get('employee', Employee::class)->name('employee.index');
     Route::resource('employee', EmployeesController::class)->except('index');
-
 });

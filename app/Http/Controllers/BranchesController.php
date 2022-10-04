@@ -34,19 +34,25 @@ class BranchesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+        if (auth()->user()->is_admin) {
+            $this->validate($request, [
+                'name' => 'required',
+            ]);
 
-        $branch = new Branch;
-        $branch->name = $request->name;
-        $branch->address = $request->address;
-        $branch->save();
+            $branch = new Branch;
+            $branch->name = $request->name;
+            $branch->address = $request->address;
+            $branch->save();
 
-        session()->flash('success', '300');
-        return redirect()->route('branches.index')->with('success', 'Created successfully!');
+            session()->flash('success', '300');
+            return redirect()->route('branches.index')->with('success', 'Created successfully!');
+        } else {
+            session()->flash('fail', '404');
+            return redirect()->route('dashboard');
+        }
     }
 
     /**
@@ -69,8 +75,13 @@ class BranchesController extends Controller
      */
     public function edit($id)
     {
-        $branch = Branch::find($id);
-        return view('branches.edit', compact('branch'));
+        if (auth()->user()) {
+            $branch = Branch::find($id);
+            return view('branches.edit', compact('branch'));
+        } else {
+            session()->flash('fail', '404');
+            return redirect()->route('dashboard');
+        }
     }
 
     /**
@@ -82,19 +93,24 @@ class BranchesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
+        if (auth()->user()->is_admin) {
+            $this->validate($request, [
+                'name' => 'required',
+            ]);
 
-        $branch = Branch::find($id);
-        $branch->name = $request->name;
-        $branch->address = $request->address;
+            $branch = Branch::find($id);
+            $branch->name = $request->name;
+            $branch->address = $request->address;
 
-        $branch->update();
-        $branch->save();
+            $branch->update();
+            $branch->save();
 
-        session()->flash('success', '300');
-        return redirect()->route('branches.index')->with('success', 'Updated successfully!');
+            session()->flash('success', '300');
+            return redirect()->route('branches.index')->with('success', 'Updated successfully!');
+        } else {
+            session()->flash('fail', '404');
+            return redirect()->route('dashboard');
+        }
     }
 
     /**
@@ -105,9 +121,14 @@ class BranchesController extends Controller
      */
     public function destroy($id)
     {
-        $branch = Branch::find($id);
-        $branch->delete();
-        session()->flash('success', '300');
-        return redirect()->route('branches.index')->with('success', 'Deleted Successfully!');
+        if (auth()->user()->is_admin) {
+            $branch = Branch::find($id);
+            $branch->delete();
+            session()->flash('success', '300');
+            return redirect()->route('branches.index')->with('success', 'Deleted Successfully!');
+        } else {
+            session()->flash('fail', '404');
+            return redirect()->route('dashboard');
+        }
     }
 }

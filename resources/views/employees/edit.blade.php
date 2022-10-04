@@ -39,7 +39,7 @@
                             Gender </label>
                         <select id="gender" name="gender"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Gender</option>
+                            <option selected disabled>Gender</option>
                             <option value="male" {{(($employee->gender=='male')? 'selected':'')}}>Male</option>
                             <option value="female" {{(($employee->gender=='female')? 'selected':'')}}>Female</option>
                         </select>
@@ -51,7 +51,7 @@
                             Branch </label>
                         <select id="branch_id" name="branch_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Branches</option>
+                            <option selected disabled>Branches</option>
                             @foreach($branches as $branch)
                                 <option class="text-black"
                                         value="{{$branch->id}}" {{$branch->id == $employee->branch_id?'selected':'' }} >{{$branch->name}}</option>
@@ -64,7 +64,7 @@
                             Department</label>
                         <select id="department_id" name="department_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Departments</option>
+                            <option selected disabled>Departments</option>
                             @foreach($departments as $department)
                                 <option class="text-black"
                                         value="{{$department->id}}" {{$department->id == $employee->department_id?'selected':'' }} >{{$department->name}}</option>

@@ -14,6 +14,6 @@ class Employee extends Component
         return view('employees.index', ['employees' => \App\Models\Employee::query()
             ->where('name', 'like', "%" . $this->search . "%")
             ->OrWhere('position','like', "%" . $this->search . "%")
-            ->get()]);
+            ->paginate(20)]);
     }
 }

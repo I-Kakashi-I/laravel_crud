@@ -4,7 +4,7 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <div>
                 <label for="search"
-                       class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+                       class="mb-2 text-sm font-medium text-gray-900 sr-only  dark:text-gray-300">Search</label>
                 <div class="relative">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
@@ -30,6 +30,9 @@
                     Email
                 </th>
                 <th scope="col" class="py-3 px-6">
+                    Active
+                </th>
+                <th scope="col" class="py-3 px-6">
                     Joined At
                 </th>
 
@@ -41,7 +44,7 @@
             <tbody>
             @foreach($users as $index=>$user)
 
-                <tr class="border-b dark:bg-gray-700 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white cursor-pointer"
+                <tr class="@if($index%2==1 ) bg-white border-b dark:bg-gray-900 dark:border-gray-700 @else dark:bg-gray-700  @endif border-b  dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 bg-white cursor-pointer"
                     onclick="location.href = '{{route('users.show',[$user->id])}}'">
                     <th class="p-4">{{$index+1}}</th>
                     <th class="p-4">{{$user->name}}</th>
