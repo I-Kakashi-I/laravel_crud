@@ -10,8 +10,7 @@ module.exports = {
         './resources/views/**/*.blade.php',
         "./node_modules/flowbite/**/*.js",
         './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
-
-
+        './app/Http/Livewire/**/*.php',
     ],
 
     theme: {

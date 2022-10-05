@@ -21,9 +21,12 @@
                                 for="toggle">show</label>
                         </div>
                         <input type="password" id="password" name="password"
-                               class="js-password bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               class="js-password @error('password') bg-red-50 border border-red-500 text-red-900 dark:text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full dark:bg-red-100 dark:border-red-400 @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="Password" required>
                     </div>
+                    @error('password')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <label for="confirm-password"
@@ -38,9 +41,13 @@
                                 for="toggle2">show</label>
                         </div>
                         <input type="password" id="confirm-password" name="password_confirmation"
-                               class="js-password2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               class="js-password2 @error('password_confirmation') bg-red-50 border border-red-500 text-red-900 dark:text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full dark:bg-red-100 dark:border-red-400 @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="Re Enter Password" required>
+
                     </div>
+                    @error('password_confirmation')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="flex relative z-0 mb-6 w-full group">
                     <div class="flex items-center h-5">

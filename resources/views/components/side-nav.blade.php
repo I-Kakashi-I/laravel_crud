@@ -1,5 +1,5 @@
 <div class="layout has-sidebar fixed-sidebar fixed-header">
-    <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+    <aside id="sidebar" class="sidebar break-point-lg has-bg-image" style="min-height: 100vh">
         <div class="image-wrapper">
             <img
                 src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
@@ -56,7 +56,20 @@
                             <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"
                                              :title="'Add Employee'"></x-side-nav-item>
                             @endif
+
+
                         </x-side-nav-sub-item>
+
+
+                        <x-side-nav-sub-item icon="ri-group-line" title="Settings">
+                            <x-side-nav-item :route="route('permissions.index')" :icon="'ri-list-ordered'"
+                                             title="All Permissions"></x-side-nav-item>
+{{--                                <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"--}}
+{{--                                                 :title="'Add Employee'"></x-side-nav-item>--}}
+
+                        </x-side-nav-sub-item>
+
+
 
                     </ul>
                 </nav>
