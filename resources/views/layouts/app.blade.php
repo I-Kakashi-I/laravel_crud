@@ -58,6 +58,7 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/popper.js')}}"></script>
+<script src="{{asset('js/theme.js')}}"></script>
 @stack('js')
 
 @livewire('livewire-ui-modal')

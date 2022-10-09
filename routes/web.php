@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Employee;
 use App\Http\Livewire\User;
+use App\Http\Livewire\Users\Index;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +35,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::middleware(['role:Super Admin'])->group(function (){
-        Route::match(['get','post'],'users', User::class)->name('users.index');
+        Route::match(['get','post'],'users', Index::class)->name('users.index');
         Route::resource('users', UserController::class)->except('index');
         Route::get('permissions', \App\Http\Livewire\Permissions\Index::class)->name('permissions.index');
 
