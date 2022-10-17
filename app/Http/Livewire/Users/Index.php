@@ -105,7 +105,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.users.index');
+        return view('users.index');
     }
 
     public function show($id)

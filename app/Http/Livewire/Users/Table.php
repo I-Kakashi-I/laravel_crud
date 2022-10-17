@@ -65,11 +65,11 @@ class Table extends DataTableComponent
 
                     LinkColumn::make('Edit')
                         ->title(fn($row) => 'Edit')
-                        ->location(fn() => null)
+                        ->location(fn($row) => route('users.edit',$row->id))
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700',
-                                'wire:click.prevent' => '$emit(`edit`,' . $row->id . ')'
+//                                'wire:click.prevent' => '$emit(`edit`,' . $row->id . ')'
                             ];
                         }),
 

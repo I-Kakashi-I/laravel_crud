@@ -53,22 +53,22 @@
                             <x-side-nav-item :route="route('employee.index')" :icon="'ri-list-ordered'"
                                              :title="'All Employees'"></x-side-nav-item>
                             @if(auth()->user()->hasRole('super_admin'))
-                            <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"
-                                             :title="'Add Employee'"></x-side-nav-item>
+                                <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"
+                                                 :title="'Add Employee'"></x-side-nav-item>
                             @endif
 
 
                         </x-side-nav-sub-item>
 
 
-                        <x-side-nav-sub-item icon="ri-group-line" title="Settings">
-                            <x-side-nav-item :route="route('permissions.index')" :icon="'ri-list-ordered'"
+                        <x-side-nav-sub-item icon="ri-sound-module-fill" title="Roles & Permissions">
+                            <x-side-nav-item :route="route('Roles.index')" :icon="'ri-admin-line'"
+                                             :title="'All Roles'"></x-side-nav-item>
+                            <x-side-nav-item :route="route('permissions.index')" :icon="'ri-user-settings-line '"
                                              title="All Permissions"></x-side-nav-item>
-{{--                                <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"--}}
-{{--                                                 :title="'Add Employee'"></x-side-nav-item>--}}
+
 
                         </x-side-nav-sub-item>
-
 
 
                     </ul>

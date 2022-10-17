@@ -14,17 +14,23 @@ class RolesAndPermissionsSeeder extends Seeder
     {
 
         $permissions = [
-            'users.index',
+            'users.view',
             'users.create',
             'users.update',
-            'users.destroy',
+            'users.delete',
+        ];
+        $roles = [
+            'super_admin',
+            'admin',
+            'user'
         ];
 
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
         }
-        Role::create(['name' => 'super_admin']);
-        $role = Role::create(['name' => 'user']);
-        $role->givePermissionTo($permissions);
+        foreach ($roles as $role) {
+            Role::create(['name' => $role]);
+        }
+        Role::findByName('super_admin')->givePermissionTo($permissions);
     }
 }

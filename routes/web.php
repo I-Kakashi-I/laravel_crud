@@ -34,10 +34,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::middleware(['role:Super Admin'])->group(function (){
+    Route::middleware(['role:super_admin'])->group(function (){
         Route::match(['get','post'],'users', Index::class)->name('users.index');
-        Route::resource('users', UserController::class)->except('index');
+        Route::get('users/{user}/edit', \App\Http\Livewire\Users\Edit::class)->name('users.edit');
+        Route::resource('users', UserController::class)->except('index','edit');
         Route::get('permissions', \App\Http\Livewire\Permissions\Index::class)->name('permissions.index');
+        Route::get('roles', \App\Http\Livewire\Roles\Index::class)->name('Roles.index');
 
     });
     Route::resource('department', DepartmentController::class);
