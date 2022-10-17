@@ -12,9 +12,10 @@
                class="bg-white dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-600 overflow-hidden sm:rounded-lg">
                 <div>
                     @php
-                        $role = auth()->user()->roles()->first();
+                        $user=auth()->user();
+                        $role = $user->roles()->first();
                     @endphp
-                    <h1>Welcome {{$role?$role->name:''}} {{auth()->user()->name}}</h1>
+                    <h1>Welcome {{$role->name=='super_admin'?'Admin':'User'}} {{$user->name}}</h1>
 
 
                 </div>
