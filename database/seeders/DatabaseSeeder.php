@@ -18,17 +18,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        \App\Models\User::factory()->create([
-//            'name' => 'Kakashi',
-//            'email' => 'kakashi@admin.com',
-//            'password' => bcrypt('password'),
+
 //
-//
-//        ]);
-//
+       Department::factory(3)->create();
+       Branch::factory(3)->create();
 //        User::factory(0)->create();
-        Employee::factory(1000)->create();
+        Employee::factory(10)
+            ->create();
+        $this->call(RolesAndPermissionsSeeder::class);
+        $user = User::factory()->create([
+            'name' => 'Kakashi',
+            'email' => 'kakashi@admin.com',
+            'password' => bcrypt('password'),
+        ]);
 
-
+        $user->assignRole("super_admin");
     }
 }

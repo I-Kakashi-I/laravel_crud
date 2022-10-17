@@ -52,7 +52,7 @@
                 <div class="flex relative z-0 mb-6 w-full group">
                     <div class="flex items-center h-5">
                         <input id="is_admin" aria-describedby="helper-checkbox-text" type="checkbox"
-                               value="{{old('is_admin')?old('is_admin')[0]:true}}"
+                               value=""
                                name="is_admin[]"
                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     </div>

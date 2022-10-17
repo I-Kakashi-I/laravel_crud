@@ -29,7 +29,6 @@ class EmployeeFactory extends Factory
             'gender' => $this->faker->randomElement(['male', 'female']),
             'department_id' => Department::all()->random(1)->first()->id,
             'branch_id' => Branch::all()->random(1)->first()->id
-
         ];
     }
 }

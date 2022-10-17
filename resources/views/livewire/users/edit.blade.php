@@ -2,7 +2,7 @@
     <div class="max-w-4xl mx-auto  min-h-screen flex items-center justify-center">
         <div class="dark:bg-gray-800 p-5 rounded-xl bg-white w-full py-12" style="margin-top: -100px">
             <h6 class="block mb-8 text-lg font-medium text-gray-900 dark:text-gray-300 text-center">Edit
-                {{$user->is_admin==1?'Admin':'User'}} Data </h6>
+                {{$user->hasRole('super_admin')?'Admin':'User'}} Data </h6>
             <form class="w-full" action="{{route('users.update',$user->id)}}" method="POST">
                 @csrf
                 @method('PUT')
@@ -55,7 +55,7 @@
                     <div class="flex items-center h-5">
                         <input id="is_admin" aria-describedby="helper-checkbox-text" type="checkbox" value="{{0|1}}"
                                name="is_admin"
-                               class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{$user->is_admin==1?'checked':''}}>
+                               class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     </div>
                     <div class="ml-2 text-sm ">
                         <label for="is_admin" class="font-medium text-gray-900 dark:text-gray-300">

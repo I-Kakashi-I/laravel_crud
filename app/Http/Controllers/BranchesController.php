@@ -32,27 +32,26 @@ class BranchesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     public function store(Request $request)
     {
-        if (auth()->user()->is_admin) {
-            $this->validate($request, [
-                'name' => 'required',
-            ]);
-
-            $branch = new Branch;
-            $branch->name = $request->name;
-            $branch->address = $request->address;
-            $branch->save();
-
-            session()->flash('success', '300');
-            return redirect()->route('branches.index')->with('success', 'Created successfully!');
-        } else {
-            session()->flash('fail', '404');
-            return redirect()->route('dashboard');
+        if (!auth()->user()->hasRole('super_admin')) {
+            abort(403);
         }
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $branch = new Branch;
+        $branch->name = $request->name;
+        $branch->address = $request->address;
+        $branch->save();
+
+        session()->flash('success', '300');
+        return redirect()->route('branches.index')->with('success', 'Created successfully!');
+
     }
 
     /**
@@ -93,7 +92,7 @@ class BranchesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (auth()->user()->is_admin) {
+        if (auth()->user()->hasRole('super_admin')) {
             $this->validate($request, [
                 'name' => 'required',
             ]);
@@ -121,7 +120,7 @@ class BranchesController extends Controller
      */
     public function destroy($id)
     {
-        if (auth()->user()->is_admin) {
+        if (auth()->user()->hasRole('super_admin')) {
             $branch = Branch::find($id);
             $branch->delete();
             session()->flash('success', '300');

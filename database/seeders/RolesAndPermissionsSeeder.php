@@ -23,8 +23,8 @@ class RolesAndPermissionsSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
         }
-        Role::create(['name' => 'user']);
-        $role = Role::create(['name' => 'super_admin']);
+        Role::create(['name' => 'super_admin']);
+        $role = Role::create(['name' => 'user']);
         $role->givePermissionTo($permissions);
     }
 }

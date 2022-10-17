@@ -8,13 +8,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="{{route('profile.show')}}" class="bg-white dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-600 overflow-hidden sm:rounded-lg">
+            <a href="{{route('profile.show')}}"
+               class="bg-white dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-600 overflow-hidden sm:rounded-lg">
                 <div>
-                    @if(auth()->user()->is_admin)
-                        <h1>Welcome Admin {{auth()->user()->name}}</h1>
-                    @else
-                        <h1>Welcome User {{auth()->user()->name}}</h1>
-                    @endif
+                    @php
+                        $role = auth()->user()->roles()->first();
+                    @endphp
+                    <h1>Welcome {{$role?$role->name:''}} {{auth()->user()->name}}</h1>
+
+
                 </div>
             </a>
         </div>
