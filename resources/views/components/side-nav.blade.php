@@ -1,4 +1,4 @@
-<div class="layout has-sidebar fixed-sidebar fixed-header">
+<div class="layout has-sidebar fixed-sidebar fixed-header dark:bg-gray-900 bg-white">
     <aside id="sidebar" class="sidebar break-point-lg has-bg-image" style="min-height: 100vh">
         <div class="image-wrapper">
             <img

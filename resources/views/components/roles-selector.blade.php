@@ -1,8 +1,8 @@
 @props(['allRoles','button'=>'Update'])
 
 <div class="flex justify-between">
-    <h3 class="mb-4 font-semibold text-gray-900 dark:text-white @error('selectedRoles') text-red-400 @endError">Roles</h3>
-    <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{$button}}</x-jet-button>
+    <h3 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 @error('selectedRoles') text-red-400 @endError">Roles</h3>
+    <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-blue-800 mb-2">{{$button}}</x-jet-button>
 </div>
 @error('selectedRoles')
 <div class="text-red-400">
