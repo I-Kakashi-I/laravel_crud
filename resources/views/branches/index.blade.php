@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container mx-auto py-12">
-
+        @can('view branches')
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-12">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
@@ -60,7 +60,7 @@
             </table>
         </div>
 
-
+        @endcan
     </div>
 </x-app-layout>
 

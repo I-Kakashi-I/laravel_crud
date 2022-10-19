@@ -14,10 +14,23 @@ class RolesAndPermissionsSeeder extends Seeder
     {
 
         $permissions = [
-            'users.view',
-            'users.create',
-            'users.update',
-            'users.delete',
+            'view users',
+            'create users',
+            'update users',
+            'delete users',
+            'view departments',
+            'create departments',
+            'update departments',
+            'delete departments',
+            'view branches',
+            'create branches',
+            'update branches',
+            'delete branches',
+            'view employees',
+            'create employees',
+            'update employees',
+            'delete employees',
+
         ];
         $roles = [
             'super_admin',

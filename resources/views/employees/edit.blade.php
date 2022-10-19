@@ -1,5 +1,6 @@
 <x-app-layout>
     <div class="max-w-4xl mx-auto  min-h-screen flex items-center justify-center">
+        @can('update employees')
         <div class="dark:bg-gray-800 p-5 rounded-xl bg-white w-full py-12" style="margin-top: -100px">
             <h6 class="block mb-8 text-lg font-medium text-gray-900 dark:text-gray-300 text-center">Update
                 Employee Data</h6>
@@ -89,6 +90,7 @@
                 </button>
             </form>
         </div>
+        @endcan
     </div>
     @push('js')
         <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>

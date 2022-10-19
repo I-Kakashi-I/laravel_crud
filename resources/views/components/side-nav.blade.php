@@ -22,53 +22,57 @@
                         <x-side-nav-item :route="route('dashboard')" :icon="'ri-home-5-line'"
                                          title="Home"></x-side-nav-item>
 
-                        @if(auth()->user()->hasRole('super_admin'))
+                        @can('view users')
                             <x-side-nav-sub-item :icon="'ri-group-line'" :title="'Users'">
                                 <x-side-nav-item :route="route('users.index')" :icon="'ri-list-ordered'"
                                                  :title="'All Users'"></x-side-nav-item>
-                                <x-side-nav-item :route="route('users.create')" :icon="'ri-user-add-line    '"
-                                                 :title="'Add User'"></x-side-nav-item>
+                                @can('create users')
+                                    <x-side-nav-item :route="route('users.create')" :icon="'ri-user-add-line    '"
+                                                     :title="'Add User'"></x-side-nav-item>
+                                @endcan
+                            </x-side-nav-sub-item>
+                        @endcan
+                        @can('view departments')
+                            <x-side-nav-sub-item :icon="'ri-building-2-line'" :title="'Departments'">
+                                <x-side-nav-item :route="route('department.index')" :icon="'ri-list-ordered'"
+                                                 :title="'All Departments'"></x-side-nav-item>
+                                @can('create departments')
+                                    <x-side-nav-item :route="route('department.create')" :icon="'ri-file-add-line'"
+                                                     :title="'Create Department'"></x-side-nav-item>
+                                @endcan
+                            </x-side-nav-sub-item>
+                        @endcan
+                        @can('view branches' )
+                            <x-side-nav-sub-item :icon="'ri-git-branch-line'" :title="'Branches'">
+                                <x-side-nav-item :route="route('branches.index')" :icon="'ri-list-ordered'"
+                                                 :title="'All Branches'"></x-side-nav-item>
+                                @can('create branches')
+                                    <x-side-nav-item :route="route('branches.create')" :icon="'ri-add-box-line'"
+                                                     :title="'Create Branch'"></x-side-nav-item>
+                                @endcan
+                            </x-side-nav-sub-item>
+                        @endcan
+                        @can('view employees')
+                            <x-side-nav-sub-item :icon="'ri-group-line'" :title="'Employees'">
+                                <x-side-nav-item :route="route('employee.index')" :icon="'ri-list-ordered'"
+                                                 :title="'All Employees'"></x-side-nav-item>
+                                @if(auth()->user()->hasRole('super_admin'))
+                                    <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"
+                                                     :title="'Add Employee'"></x-side-nav-item>
+                                @endif
+
+
+                            </x-side-nav-sub-item>
+                        @endcan
+                        @if(auth()->user()->hasRole('super_admin'))
+                            <x-side-nav-sub-item icon="ri-sound-module-fill" title="Roles & Permissions">
+                                <x-side-nav-item :route="route('Roles.index')" :icon="'ri-admin-line'"
+                                                 :title="'All Roles'"></x-side-nav-item>
+                                <x-side-nav-item :route="route('permissions.index')" :icon="'ri-user-settings-line '"
+                                                 title="All Permissions"></x-side-nav-item>
+
                             </x-side-nav-sub-item>
                         @endif
-                        <x-side-nav-sub-item :icon="'ri-building-2-line'" :title="'Departments'">
-                            <x-side-nav-item :route="route('department.index')" :icon="'ri-list-ordered'"
-                                             :title="'All Departments'"></x-side-nav-item>
-                            @if(auth()->user()->hasRole('super_admin'))
-                                <x-side-nav-item :route="route('department.create')" :icon="'ri-file-add-line'"
-                                                 :title="'Create Department'"></x-side-nav-item>
-                            @endif
-                        </x-side-nav-sub-item>
-
-                        <x-side-nav-sub-item :icon="'ri-git-branch-line'" :title="'Branches'">
-                            <x-side-nav-item :route="route('branches.index')" :icon="'ri-list-ordered'"
-                                             :title="'All Branches'"></x-side-nav-item>
-                            @if(auth()->user()->hasRole('super_admin'))
-                                <x-side-nav-item :route="route('branches.create')" :icon="'ri-add-box-line'"
-                                                 :title="'Create Branch'"></x-side-nav-item>
-                            @endif
-                        </x-side-nav-sub-item>
-
-
-                        <x-side-nav-sub-item :icon="'ri-group-line'" :title="'Employees'">
-                            <x-side-nav-item :route="route('employee.index')" :icon="'ri-list-ordered'"
-                                             :title="'All Employees'"></x-side-nav-item>
-                            @if(auth()->user()->hasRole('super_admin'))
-                                <x-side-nav-item :route="route('employee.create')" :icon="'ri-user-add-line    '"
-                                                 :title="'Add Employee'"></x-side-nav-item>
-                            @endif
-
-
-                        </x-side-nav-sub-item>
-
-
-                        <x-side-nav-sub-item icon="ri-sound-module-fill" title="Roles & Permissions">
-                            <x-side-nav-item :route="route('Roles.index')" :icon="'ri-admin-line'"
-                                             :title="'All Roles'"></x-side-nav-item>
-                            <x-side-nav-item :route="route('permissions.index')" :icon="'ri-user-settings-line '"
-                                             title="All Permissions"></x-side-nav-item>
-
-
-                        </x-side-nav-sub-item>
 
 
                     </ul>

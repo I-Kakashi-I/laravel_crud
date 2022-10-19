@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
     {
 
 //
-       Department::factory(3)->create();
-       Branch::factory(3)->create();
+        Department::factory(3)->create();
+        Branch::factory(3)->create();
 //        User::factory(0)->create();
         Employee::factory(10)
             ->create();
@@ -31,7 +31,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'kakashi@admin.com',
             'password' => bcrypt('password'),
         ]);
-
+        $testUser=User::factory()->create([
+            'name' => 'User',
+            'email' => 'user@test.com',
+            'password' => bcrypt('asddsa'),
+        ]);
+        $testUser->assignRole("user");
         $user->assignRole("super_admin");
     }
 }
