@@ -45,5 +45,17 @@ class RolesAndPermissionsSeeder extends Seeder
             Role::create(['name' => $role]);
         }
         Role::findByName('super_admin')->givePermissionTo($permissions);
+        Role::findByName('admin')->givePermissionTo('view departments',
+            'create departments',
+            'update departments',
+            'delete departments',
+            'view branches',
+            'create branches',
+            'update branches',
+            'delete branches',
+            'view employees',
+            'create employees',
+            'update employees',
+            'delete employees');
     }
 }

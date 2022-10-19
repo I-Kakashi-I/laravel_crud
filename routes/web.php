@@ -3,8 +3,10 @@
 use App\Http\Controllers\BranchesController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Employee;
+use App\Http\Livewire\Inventory;
 use App\Http\Livewire\User;
 use App\Http\Livewire\Users\Index;
 use Illuminate\Support\Facades\Auth;
@@ -34,16 +36,18 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::middleware(['role:super_admin'])->group(function (){
-        Route::match(['get','post'],'users', Index::class)->name('users.index');
+    Route::middleware(['role:super_admin'])->group(function () {
+        Route::match(['get', 'post'], 'users', Index::class)->name('users.index');
         Route::get('users/{user}/edit', \App\Http\Livewire\Users\Edit::class)->name('users.edit');
-        Route::resource('users', UserController::class)->except('index','edit');
+        Route::resource('users', UserController::class)->except('index', 'edit');
         Route::get('permissions', \App\Http\Livewire\Permissions\Index::class)->name('permissions.index');
         Route::get('roles', \App\Http\Livewire\Roles\Index::class)->name('Roles.index');
 
     });
     Route::resource('department', DepartmentController::class);
-    Route::resource('branches', BranchesController::class);
+    Route::resource('inventory', InventoryController::class)->except('index');
+    Route::resource('inventory', InventoryController::class);
+    Route::resource('inventory', Inventory::class)->name('inventory.index');
     Route::get('employee', Employee::class)->name('employee.index');
     Route::resource('employee', EmployeesController::class)->except('index');
 });
