@@ -45,9 +45,7 @@ Route::middleware([
 
     });
     Route::resource('department', DepartmentController::class);
-    Route::resource('inventory', InventoryController::class)->except('index');
-    Route::resource('inventory', InventoryController::class);
-    Route::resource('inventory', Inventory::class)->name('inventory.index');
+    Route::resource('branches', BranchesController::class);
     Route::get('employee', Employee::class)->name('employee.index');
     Route::resource('employee', EmployeesController::class)->except('index');
 });
