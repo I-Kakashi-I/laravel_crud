@@ -2,7 +2,7 @@
     <aside id="sidebar" class="sidebar break-point-lg has-bg-image" style="min-height: 100vh">
         <div class="image-wrapper">
             <img
-                src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
+                src="{{asset("images/solution-sidebar-background1.jpg")}}"
                 alt="sidebar background"/>
         </div>
         <div class="sidebar-layout">
@@ -23,7 +23,7 @@
                                          title="Home"></x-side-nav-item>
 
                         @can('view users')
-                            <x-side-nav-sub-item route="users" :icon="'ri-group-line'" :title="'Users'">
+                            <x-side-nav-sub-item route="users" :icon="'ri-user-2-fill'" :title="'Users'">
                                 <x-side-nav-item route="users.index" :icon="'ri-list-ordered'"
                                                  :title="'All Users'"></x-side-nav-item>
                                 @can('create users')
@@ -68,8 +68,8 @@
                             <x-side-nav-sub-item  route="roles" icon="ri-sound-module-fill" title="Roles & Permissions">
                                 <x-side-nav-item route="roles.index" :icon="'ri-admin-line'"
                                                  :title="'All Roles'"></x-side-nav-item>
-                                <x-side-nav-item route="permissions.index" : icon="'ri-user-settings-line'"
-                                                 title="All Permissions"></x-side-nav-item>
+                                <x-side-nav-item route="permissions.index" :icon="'ri-user-settings-line'"
+                                                 :title="'All Permissions'"></x-side-nav-item>
 
                             </x-side-nav-sub-item>
                         @endif
